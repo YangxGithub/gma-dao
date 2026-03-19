@@ -1,0 +1,1 @@
+import{n as e,j as t,r,A as s}from"./index-CawMnySU.js";e.createRoot(document.getElementById("root")).render(t.jsx(r.StrictMode,{"code-path":"src/admin/main.tsx:7:3",children:t.jsx(s,{"code-path":"src/admin/main.tsx:8:5"})}));
