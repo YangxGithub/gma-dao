@@ -28,3 +28,7 @@ dist-ssr/
 Thumbs.db
 
 .cursorrules
+
+# Build output
+gma-dao-dev/
+gma-dao-prod/

@@ -4,7 +4,15 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const distRoot = path.resolve(__dirname, '../dist');
+
+const getOutDir = () => {
+  const idx = process.argv.indexOf('--outDir');
+  if (idx !== -1 && process.argv[idx + 1]) return process.argv[idx + 1];
+  return process.env.OUT_DIR || 'dist';
+};
+
+const outDir = getOutDir();
+const distRoot = path.resolve(__dirname, `../${outDir}`);
 const port = Number(process.env.PORT || 4173);
 
 const mimeTypes = {

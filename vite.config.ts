@@ -2,7 +2,9 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 
-export default defineConfig(() => {
+export default defineConfig(({ mode }) => {
+  const outDir = mode === 'production' ? 'gma-dao-prod' : 'gma-dao-dev';
+
   return {
     plugins: [
       // 开发环境下：让 /admin/*（不带文件后缀）走 admin/index.html，而不是官网 index.html
@@ -33,6 +35,7 @@ export default defineConfig(() => {
       }
     },
     build: {
+      outDir,
       rollupOptions: {
         input: {
           site: resolve(__dirname, 'index.html'),
