@@ -6,12 +6,3 @@
 </template>
 
 <script setup lang="ts"></script>
-
-<style scoped>
-section {
-  padding: 1rem;
-  background: #fff;
-  border-radius: 0.5rem;
-}
-</style>
-
