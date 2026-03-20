@@ -345,7 +345,7 @@ import { computed, ref, h } from 'vue';
 import { useRoute } from 'vue-router';
 import { theme } from 'ant-design-vue';
 import enUS from 'ant-design-vue/es/locale/en_US';
-import LogoImg from './pages/LogoImg.vue';
+import LogoImg from './components/LogoImg.vue';
 import { SaveOutlined, UploadOutlined, SettingOutlined } from '@ant-design/icons-vue';
 
 const route = useRoute();

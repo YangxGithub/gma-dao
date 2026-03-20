@@ -2,7 +2,7 @@
   <div class="login-page">
     <a-card>
       <div class="login-card">
-        <div class="logo">G</div>
+        <div class="logo"><LogoImg /></div>
         <div class="title">GMA Admin</div>
         <div class="description">Manage your website content</div>
         <a-form style="width: 100%" layout="vertical" :model="formState" autocomplete="off" @finish="handleSubmit">
@@ -33,6 +33,7 @@ import { useRouter } from 'vue-router';
 import { UserOutlined } from '@ant-design/icons-vue';
 import { useGmadaoConfigStore } from '../stores/gmadaoConfig';
 import { message } from 'ant-design-vue';
+import LogoImg from '../components/LogoImg.vue';
 
 const router = useRouter();
 const gmadaoConfigStore = useGmadaoConfigStore();

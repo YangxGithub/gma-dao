@@ -1,40 +1,43 @@
 <template>
   <section class="config-page">
-    <h2>JSON 预览</h2>
+    <a-card class="config-card" title="配置管理">
+      <a-space direction="vertical" size="middle" style="width: 100%">
+        <a-space wrap>
+          <a-button @click="loadRemote">加载线上配置</a-button>
+          <a-button type="primary" @click="saveAndOpenUpload">保存并打开上传页</a-button>
+        </a-space>
 
-    <div class="controls">
-      <button type="button" class="btn" @click="loadRemote">加载线上配置</button>
-      <button type="button" class="btn primary" @click="saveAndOpenUpload">保存（下载 JSON 并打开上传页）</button>
-    </div>
+        <a-alert v-if="status" :message="status" :type="statusType" show-icon />
 
-    <p v-if="status" class="status">{{ status }}</p>
+        <a-textarea
+          v-model:value="jsonText"
+          class="json-editor"
+          :auto-size="{ minRows: 12, maxRows: 30 }"
+          placeholder="编辑 GMADAOConfig.Json" />
 
-    <textarea v-model="jsonText" rows="14" class="textarea"></textarea>
-
-    <a-modal
-      v-model:open="uploadModalOpen"
-      title="在官方上传页提交 JSON"
-      width="min(960px, 96vw)"
-      :footer="null"
-      destroy-on-close
-      @after-close="onUploadModalAfterClose">
-      <div class="upload-modal-body">
-        <p class="modal-hint">
-          已触发下载 <strong>{{ fileCfg.fileName }}</strong
-          >。请在下方页面选择该文件并点击上传。
-          由于跨域限制，无法自动检测上传是否成功；<strong>关闭本弹窗后将自动重新拉取线上配置</strong>。
-        </p>
-        <p class="modal-hint secondary">
-          若下方区域空白，可能是对方站点禁止被嵌入（X-Frame-Options），请用新窗口打开上传页。
-        </p>
-        <div class="modal-actions">
-          <a :href="uploadPageAbsoluteUrl" target="_blank" rel="noopener noreferrer">新窗口打开上传页</a>
-        </div>
-        <div class="iframe-wrap">
-          <iframe :key="iframeKey" class="upload-iframe" title="GMADAO API upload" :src="uploadPageSrc" />
-        </div>
-      </div>
-    </a-modal>
+        <a-modal
+          v-model:open="uploadModalOpen"
+          title="上传 JSON"
+          :footer="null"
+          destroy-on-close
+          @after-close="onUploadModalAfterClose">
+          <div class="upload-modal-body">
+            <p class="modal-hint">
+              已下载 <strong>{{ fileCfg.fileName }}</strong
+              >。请在下方选择该文件并上传。
+            </p>
+            <p class="modal-hint secondary">关闭弹窗后会自动刷新配置。</p>
+            <p class="modal-hint secondary hint-secondary">若下方空白，请用新窗口打开上传页。</p>
+            <div class="modal-actions">
+              <a :href="uploadPageAbsoluteUrl" target="_blank" rel="noopener noreferrer">新窗口打开</a>
+            </div>
+            <div class="iframe-wrap">
+              <iframe :key="iframeKey" class="upload-iframe" title="GMADAO API upload" :src="uploadPageSrc" />
+            </div>
+          </div>
+        </a-modal>
+      </a-space>
+    </a-card>
   </section>
 </template>
 
@@ -63,6 +66,14 @@ const uploadModalOpen = ref(false);
 /** iframe 每次打开弹窗刷新，避免残留上次表单状态 */
 const iframeKey = ref(0);
 
+const statusType = computed(() => {
+  if (!status.value) return 'info';
+  if (status.value.includes('加载成功') || status.value.includes('下载完成')) return 'success';
+  if (status.value.includes('加载失败') || status.value.includes('失败') || status.value.includes('错误'))
+    return 'error';
+  return 'info';
+});
+
 const loadRemote = async () => {
   status.value = '加载中...';
   try {
@@ -87,9 +98,9 @@ const loadRemote = async () => {
     } catch {
       jsonText.value = raw;
     }
-    status.value = '加载成功 ✅';
+    status.value = '加载成功';
   } catch (e) {
-    status.value = '加载失败：请检查跨域(CORS)或接口地址是否正确。' + (e instanceof Error ? ` (${e.message})` : '');
+    status.value = '加载失败' + (e instanceof Error ? `：${e.message}` : '');
   }
 };
 
@@ -111,11 +122,11 @@ const saveAndOpenUpload = () => {
     const obj = JSON.parse(jsonText.value);
     const json = JSON.stringify(obj, null, 2);
     downloadJsonFile(json, fileCfg.fileName);
-    status.value = '已下载 JSON，请在上传页提交。';
+    status.value = '下载完成，请上传';
     iframeKey.value += 1;
     uploadModalOpen.value = true;
   } catch {
-    status.value = '保存失败：当前内容不是合法 JSON。';
+    status.value = '保存失败：不是合法 JSON';
   }
 };
 
@@ -131,3 +142,57 @@ onMounted(() => {
   loadRemote();
 });
 </script>
+
+<style scoped lang="scss">
+.config-page {
+  padding: 1rem;
+}
+
+.config-card :deep(.ant-card-head-title) {
+  font-weight: 600;
+}
+
+.json-editor :deep(.ant-input),
+.json-editor :deep(textarea) {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+.upload-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.modal-hint {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.modal-hint.secondary {
+  font-size: 0.875rem;
+  opacity: 0.72;
+}
+
+.hint-secondary {
+  margin-top: -0.25rem;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.iframe-wrap {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.upload-iframe {
+  display: block;
+  width: 100%;
+  height: 200px;
+  border: 0;
+}
+</style>
