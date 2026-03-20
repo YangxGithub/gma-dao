@@ -10,7 +10,7 @@ const modeArg = process.argv[2] || 'development';
 const outDirName = modeArg === 'production' ? 'gma-dao-prod' : 'gma-dao-dev';
 const outPath = path.join(root, outDirName);
 
-const MAX_ZIPS = 3;
+const MAX_ZIPS = 1;
 
 /** 同环境（gma-dao-dev / gma-dao-prod）下最多保留 maxKeep 个 zip，删掉更旧的 */
 function pruneZips(zipDir, prefix, maxKeep) {
@@ -37,7 +37,11 @@ if (!fs.existsSync(outPath)) {
   process.exit(1);
 }
 
-const stamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
+function localStamp(d = new Date()) {
+  const p = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}T${p(d.getHours())}-${p(d.getMinutes())}-${p(d.getSeconds())}`;
+}
+const stamp = localStamp();
 const zipFileName = `${outDirName}-${stamp}.zip`;
 const zipDir = path.join(root, 'dist-zips');
 const dest = path.join(zipDir, zipFileName);

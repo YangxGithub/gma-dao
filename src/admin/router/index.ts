@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import { useGmadaoConfigStore } from '../stores/gmadaoConfig';
 import Login from '../pages/Login.vue';
 import ConfigManager from '../pages/ConfigManager.vue';
@@ -10,9 +10,9 @@ const routes: RouteRecordRaw[] = [
   { path: '/user', name: 'user', component: User },
 ];
 
-// 这里固定使用 /admin/ 作为 base，配合 Vite preview 和线上服务器的重写规则
+// Hash 模式：入口为 .../admin/index.html，路由在 # 后，如 #/login、#/user（勿再写 /admin/ base）
 const router = createRouter({
-  history: createWebHistory('/admin/'),
+  history: createWebHashHistory(),
   routes,
 });
 

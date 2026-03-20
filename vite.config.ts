@@ -2,19 +2,22 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 
+/** dev 与 preview 共用：请求 /GMADAOAPI → https://erp.city（不区分 development / production mode） */
+const gmadaoApiProxy = {
+  '/GMADAOAPI': {
+    target: 'https://erp.city',
+    changeOrigin: true,
+    secure: true,
+  },
+};
+
 export default defineConfig(({ mode }) => {
   const outDir = mode === 'production' ? 'gma-dao-prod' : 'gma-dao-dev';
 
   return {
-    // 开发时把 /GMADAOAPI 代理到 erp.city，避免浏览器直连跨域（CORS）
+    base: './',
     server: {
-      proxy: {
-        '/GMADAOAPI': {
-          target: 'https://erp.city',
-          changeOrigin: true,
-          secure: true
-        }
-      }
+      proxy: { ...gmadaoApiProxy },
     },
     plugins: [
       // 开发环境下：让 /admin/*（不带文件后缀）走 admin/index.html，而不是官网 index.html
@@ -25,9 +28,7 @@ export default defineConfig(({ mode }) => {
           server.middlewares.use((req, _res, next) => {
             const url = req.url || '';
             // 仅处理 /admin 开头且不包含文件扩展名的路径，如 /admin、/admin/users
-            const isAdminPath =
-              url.startsWith('/admin') &&
-              !url.match(/\.[a-zA-Z0-9]+($|\?)/);
+            const isAdminPath = url.startsWith('/admin') && !url.match(/\.[a-zA-Z0-9]+($|\?)/);
 
             if (isAdminPath) {
               req.url = '/admin/index.html';
@@ -35,24 +36,23 @@ export default defineConfig(({ mode }) => {
 
             next();
           });
-        }
+        },
       },
-      vue()
+      vue(),
     ],
     resolve: {
       alias: {
-        '@': resolve(__dirname, 'src')
-      }
+        '@': resolve(__dirname, 'src'),
+      },
     },
     build: {
       outDir,
       rollupOptions: {
         input: {
           site: resolve(__dirname, 'index.html'),
-          admin: resolve(__dirname, 'admin/index.html')
-        }
-      }
-    }
+          admin: resolve(__dirname, 'admin/index.html'),
+        },
+      },
+    },
   };
 });
-
