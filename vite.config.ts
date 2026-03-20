@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 
-/** dev 与 preview 共用：请求 /GMADAOAPI → https://erp.city（不区分 development / production mode） */
 const gmadaoApiProxy = {
   '/GMADAOAPI': {
     target: 'https://erp.city',

@@ -1,34 +1,71 @@
 <template>
   <section class="config-page">
-    <h2>GMADAO 配置管理</h2>
+    <h2>JSON 预览</h2>
 
     <div class="controls">
       <button type="button" class="btn" @click="loadRemote">加载线上配置</button>
-      <button type="button" class="btn primary" @click="uploadFile">导出并上传</button>
+      <button type="button" class="btn primary" @click="saveAndOpenUpload">保存（下载 JSON 并打开上传页）</button>
     </div>
 
     <p v-if="status" class="status">{{ status }}</p>
 
     <textarea v-model="jsonText" rows="14" class="textarea"></textarea>
+
+    <a-modal
+      v-model:open="uploadModalOpen"
+      title="在官方上传页提交 JSON"
+      width="min(960px, 96vw)"
+      :footer="null"
+      destroy-on-close
+      @after-close="onUploadModalAfterClose">
+      <div class="upload-modal-body">
+        <p class="modal-hint">
+          已触发下载 <strong>{{ fileCfg.fileName }}</strong
+          >。请在下方页面选择该文件并点击上传。
+          由于跨域限制，无法自动检测上传是否成功；<strong>关闭本弹窗后将自动重新拉取线上配置</strong>。
+        </p>
+        <p class="modal-hint secondary">
+          若下方区域空白，可能是对方站点禁止被嵌入（X-Frame-Options），请用新窗口打开上传页。
+        </p>
+        <div class="modal-actions">
+          <a :href="uploadPageAbsoluteUrl" target="_blank" rel="noopener noreferrer">新窗口打开上传页</a>
+        </div>
+        <div class="iframe-wrap">
+          <iframe :key="iframeKey" class="upload-iframe" title="GMADAO API upload" :src="uploadPageSrc" />
+        </div>
+      </div>
+    </a-modal>
   </section>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { useGmadaoConfigStore } from '../stores/gmadaoConfig';
 import { getGmadaoConfigBaseUrl, getGmadaoConfigJsonUrl, getGmadaoConfigFileConfig } from '../../config/gmadaoConfig';
 
 const gmadaoConfigStore = useGmadaoConfigStore();
-const UPLOAD_URL = getGmadaoConfigBaseUrl();
 const DOWNLOAD_URL = getGmadaoConfigJsonUrl();
+const fileCfg = getGmadaoConfigFileConfig();
+
+const uploadPageSrc = getGmadaoConfigBaseUrl();
+
+const uploadPageAbsoluteUrl = computed(() => {
+  const base = uploadPageSrc;
+  if (base.startsWith('http://') || base.startsWith('https://')) {
+    return base;
+  }
+  return new URL(base, window.location.origin).href;
+});
 
 const jsonText = ref('');
 const status = ref('');
+const uploadModalOpen = ref(false);
+/** iframe 每次打开弹窗刷新，避免残留上次表单状态 */
+const iframeKey = ref(0);
 
 const loadRemote = async () => {
   status.value = '加载中...';
   try {
-    // 防缓存核心代码
     const timestamp = new Date().getTime();
     const url = `${DOWNLOAD_URL}?t=${timestamp}`;
 
@@ -56,40 +93,34 @@ const loadRemote = async () => {
   }
 };
 
-const uploadFile = async () => {
-  status.value = '上传中...';
+function downloadJsonFile(content: string, fileName: string) {
+  const blob = new Blob([content], { type: 'application/json' });
+  const objectUrl = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = objectUrl;
+  a.download = fileName;
+  a.rel = 'noopener';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(objectUrl);
+}
+
+const saveAndOpenUpload = () => {
   try {
-    let obj: unknown = null;
-    try {
-      obj = JSON.parse(jsonText.value);
-    } catch {
-      throw new Error('当前 JSON 内容不是合法 JSON');
-    }
-
+    const obj = JSON.parse(jsonText.value);
     const json = JSON.stringify(obj, null, 2);
-    const blob = new Blob([json], { type: 'application/json' });
-
-    const fileCfg = getGmadaoConfigFileConfig();
-    const form = new FormData();
-    form.append(fileCfg.fieldName, blob, fileCfg.fileName);
-
-    const res = await fetch(UPLOAD_URL, {
-      method: 'POST',
-      body: form,
-      credentials: 'include',
-    });
-
-    if (!res.ok) {
-      const text = await res.text().catch(() => '');
-      throw new Error(`POST failed: ${res.status} ${text}`.trim());
-    }
-
-    status.value = '上传成功 ✅';
-    await loadRemote();
-  } catch (e) {
-    status.value =
-      '上传失败：请让后端确认上传字段名/接口方法/是否要求鉴权。' + (e instanceof Error ? ` (${e.message})` : '');
+    downloadJsonFile(json, fileCfg.fileName);
+    status.value = '已下载 JSON，请在上传页提交。';
+    iframeKey.value += 1;
+    uploadModalOpen.value = true;
+  } catch {
+    status.value = '保存失败：当前内容不是合法 JSON。';
   }
+};
+
+const onUploadModalAfterClose = () => {
+  void loadRemote();
 };
 
 onMounted(() => {
@@ -100,63 +131,3 @@ onMounted(() => {
   loadRemote();
 });
 </script>
-
-<style scoped>
-.config-page {
-  padding: 1rem;
-}
-
-.controls {
-  display: flex;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.btn {
-  padding: 0.5rem 0.9rem;
-  border-radius: 0.5rem;
-  border: 1px solid #e5e7eb;
-  background: #fff;
-  cursor: pointer;
-}
-
-.btn.primary {
-  border-color: #2563eb;
-  background: #2563eb;
-  color: #fff;
-}
-
-.field {
-  margin: 0.75rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  max-width: 520px;
-}
-
-label {
-  font-size: 0.875rem;
-  color: #6b7280;
-}
-
-input {
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.5rem;
-  border: 1px solid #d1d5db;
-}
-
-.textarea {
-  width: 100%;
-  margin-top: 0.75rem;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  border: 1px solid #d1d5db;
-  resize: vertical;
-}
-
-.status {
-  margin-top: 0.5rem;
-  color: #6b7280;
-}
-</style>

@@ -6,8 +6,8 @@ import User from '../pages/User.vue';
 
 const routes: RouteRecordRaw[] = [
   { path: '/login', name: 'login', component: Login },
-  { path: '/', name: 'config', component: ConfigManager },
-  { path: '/user', name: 'user', component: User },
+  { path: '/', name: 'user', component: User },
+  { path: '/config', name: 'config', component: ConfigManager },
 ];
 
 // Hash 模式：入口为 .../admin/index.html，路由在 # 后，如 #/login、#/user（勿再写 /admin/ base）
@@ -25,7 +25,7 @@ router.beforeEach((to, _from, next) => {
   if (WHITE_LIST.includes(to.name as string)) {
     // 已登录访问登录页，直接跳首页
     if (isAuthed) {
-      next({ name: 'config' });
+      next('/config') 
     } else {
       next();
     }
