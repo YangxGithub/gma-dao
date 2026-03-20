@@ -4,12 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vite build --mode development",
-    "build:prod": "vite build --mode production",
-    "preview": "vite preview --mode development --outDir gma-dao-dev",
-    "preview:prod": "vite preview --mode production --outDir gma-dao-prod",
-    "preview:spa": "node scripts/preview-spa.mjs --mode development --outDir gma-dao-dev",
-    "preview:spa:prod": "node scripts/preview-spa.mjs --mode production --outDir gma-dao-prod"
+    "build": "vite build --mode development && node scripts/zip-out.mjs development",
+    "build:prod": "vite build --mode production && node scripts/zip-out.mjs production",
+    "demo": "serve -l 5180 public/demo",
+    "preview": "node scripts/preview-spa.mjs --mode development --outDir gma-dao-dev",
+    "preview:prod": "node scripts/preview-spa.mjs --mode production --outDir gma-dao-prod"
   },
   "dependencies": {
     "pinia": "^3.0.4",
@@ -18,7 +17,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.0",
+    "archiver": "^7.0.1",
     "sass-embedded": "^1.98.0",
+    "serve": "^14.2.6",
     "typescript": "^5.6.0",
     "vite": "^6.0.0"
   }

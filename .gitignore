@@ -32,3 +32,6 @@ Thumbs.db
 # Build output
 gma-dao-dev/
 gma-dao-prod/
+
+# 构建产物 zip
+dist-zips/
