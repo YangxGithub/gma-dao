@@ -6,6 +6,16 @@ export default defineConfig(({ mode }) => {
   const outDir = mode === 'production' ? 'gma-dao-prod' : 'gma-dao-dev';
 
   return {
+    // 开发时把 /GMADAOAPI 代理到 erp.city，避免浏览器直连跨域（CORS）
+    server: {
+      proxy: {
+        '/GMADAOAPI': {
+          target: 'https://erp.city',
+          changeOrigin: true,
+          secure: true
+        }
+      }
+    },
     plugins: [
       // 开发环境下：让 /admin/*（不带文件后缀）走 admin/index.html，而不是官网 index.html
       {

@@ -1,0 +1,1221 @@
+{
+    "layout": {
+        "sectionOrder": [
+            "hero",
+            "about",
+            "games",
+            "media",
+            "events",
+            "opentask",
+            "business",
+            "portfolio",
+            "partners"
+        ],
+        "sectionVisibility": {
+            "hero": true,
+            "about": true,
+            "business": true,
+            "games": true,
+            "media": true,
+            "events": true,
+            "opentask": true,
+            "portfolio": true,
+            "partners": true
+        },
+        "subSectionVisibility": {
+            "events": {
+                "onlineEvents": true,
+                "offlineEvents": true,
+                "tournaments": true
+            },
+            "media": {
+                "dailyReports": true,
+                "weeklyReports": true,
+                "articles": true
+            }
+        },
+        "subSectionOrder": {
+            "events": [
+                "onlineEvents",
+                "offlineEvents",
+                "tournaments"
+            ],
+            "media": [
+                "dailyReports",
+                "weeklyReports",
+                "articles"
+            ]
+        },
+        "navigation": {
+            "showBadge": true
+        },
+        "fieldVisibility": {
+            "hero": {
+                "badge": true,
+                "title": true,
+                "subtitle": true,
+                "ctaPrimary": true,
+                "ctaSecondary": true,
+                "stats": true
+            },
+            "about": {
+                "badge": true,
+                "title": true,
+                "description1": true,
+                "description2": true
+            },
+            "business": {
+                "badge": true,
+                "title": true,
+                "subtitle": true,
+                "items": true
+            },
+            "games": {
+                "badge": true,
+                "title": true,
+                "subtitle": true
+            },
+            "media": {
+                "badge": true,
+                "title": true,
+                "subtitle": true,
+                "dailyReports": true,
+                "weeklyReports": true,
+                "articles": true
+            },
+            "events": {
+                "badge": true,
+                "title": true,
+                "subtitle": true,
+                "onlineEvents": true,
+                "offlineEvents": true,
+                "tournaments": true
+            },
+            "opentask": {
+                "badge": true,
+                "title": true,
+                "subtitle": true,
+                "contributors": true,
+                "tasks": true
+            },
+            "portfolio": {
+                "badge": true,
+                "title": true,
+                "subtitle": true,
+                "projects": true,
+                "reports": true
+            },
+            "partners": {
+                "badge": true,
+                "title": true,
+                "subtitle": true,
+                "cta": true
+            }
+        }
+    },
+    "navigation": {
+        "logoText": "GMA DAO",
+        "logoUrl": "",
+        "items": [
+            {
+                "label": "About",
+                "href": "#about"
+            },
+            {
+                "label": "Business",
+                "href": "#business"
+            },
+            {
+                "label": "Games Index",
+                "href": "#games"
+            },
+            {
+                "label": "Media",
+                "href": "#media"
+            },
+            {
+                "label": "Event",
+                "href": "#event"
+            },
+            {
+                "label": "OpenTask",
+                "href": "#opentask"
+            },
+            {
+                "label": "Portfolio",
+                "href": "#portfolio"
+            },
+            {
+                "label": "Partners",
+                "href": "#partners"
+            }
+        ],
+        "twitterUrl": "https://x.com/GMA_DAO",
+        "contributeText": "Contribute"
+    },
+    "trending": {
+        "items": [
+            {
+                "type": "daily",
+                "title": "Daily Report: Web3 Gaming Market Analysis",
+                "date": "Jan 15, 2026",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "type": "weekly",
+                "title": "Weekly Report: Top 10 Blockchain Games",
+                "date": "Week 2, 2026",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "type": "event",
+                "title": "GMA City Tour - Shanghai Meetup",
+                "date": "Feb 20, 2026",
+                "link": "#event"
+            }
+        ]
+    },
+    "hero": {
+        "badge": "Leading Web3 Gaming DAO",
+        "title": "Game Mine Alliance",
+        "subtitle": "Advancing blockchain gaming through investment, incubation, and community building. Join 100K+ members shaping the future of Web3 gaming.",
+        "ctaPrimary": "Explore Open Tasks",
+        "ctaSecondary": "Learn More",
+        "stats": [
+            {
+                "value": "50+",
+                "label": "Portfolio Projects"
+            },
+            {
+                "value": "100K+",
+                "label": "Community Members"
+            },
+            {
+                "value": "5+",
+                "label": "Years Experience"
+            }
+        ],
+        "banners": [
+            {
+                "image": "/images/article-1.jpg",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "image": "/images/article-2.jpg",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "image": "/images/article-3.jpg",
+                "link": "https://x.com/GMA_DAO"
+            }
+        ]
+    },
+    "about": {
+        "badge": "About Us",
+        "title": "Building the Future of Web3 Gaming",
+        "description1": "GMA (Game Mine Alliance) is a Web3 gaming DAO advancing blockchain gaming through investment, incubation, and community building.",
+        "description2": "Our vibrant community positions GMA as a key player in the future of Web3 gaming."
+    },
+    "business": {
+        "badge": "Our Business",
+        "title": "Comprehensive Web3 Gaming Ecosystem Services",
+        "subtitle": "From early-stage funding to community building.",
+        "items": [
+            {
+                "title": "Primary Market Funding",
+                "description": "Invests in Web3 games with incubation services.",
+                "icon": "rocket"
+            },
+            {
+                "title": "Secondary Market Investment",
+                "description": "Analyzes launched projects for NFT investments.",
+                "icon": "trending"
+            },
+            {
+                "title": "P2E Guild",
+                "description": "Invests in-game assets for play-and-earn.",
+                "icon": "gamepad"
+            },
+            {
+                "title": "Marketing & Events",
+                "description": "Organizes AMAs and global events.",
+                "icon": "calendar"
+            },
+            {
+                "title": "Gaming Research",
+                "description": "Curates content and conducts research.",
+                "icon": "search"
+            },
+            {
+                "title": "Operations & Finance",
+                "description": "Coordinates activities transparently.",
+                "icon": "settings"
+            }
+        ]
+    },
+    "games": {
+        "badge": "Games Index",
+        "title": "GMA Trending Games",
+        "subtitle": "Discover the hottest blockchain games ranked by player activity and community engagement.",
+        "items": [
+            {
+                "id": 1,
+                "rank": 1,
+                "name": "Axie Infinity",
+                "genre": "Strategy",
+                "rating": 9.6,
+                "twitterUrl": "https://x.com/AxieInfinity",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1834204363067150336/4ia7E1EZ_400x400.jpg"
+            },
+            {
+                "id": 2,
+                "rank": 2,
+                "name": "Pixels",
+                "genre": "Farming",
+                "rating": 9.4,
+                "twitterUrl": "https://x.com/pixels_online",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1624407413662261250/3Q1E7y8V_400x400.jpg"
+            },
+            {
+                "id": 3,
+                "rank": 3,
+                "name": "The Sandbox",
+                "genre": "Metaverse",
+                "rating": 9.2,
+                "twitterUrl": "https://x.com/TheSandboxGame",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1468000050368495619/uD7Q7B8k_400x400.jpg"
+            },
+            {
+                "id": 4,
+                "rank": 4,
+                "name": "Illuvium",
+                "genre": "RPG",
+                "rating": 9,
+                "twitterUrl": "https://x.com/illuviumio",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1412378332080525312/5nUVzVzL_400x400.jpg"
+            },
+            {
+                "id": 5,
+                "rank": 5,
+                "name": "Big Time",
+                "genre": "Action RPG",
+                "rating": 8.8,
+                "twitterUrl": "https://x.com/playbigtime",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1517216832698949636/7LKww8Z4_400x400.jpg"
+            },
+            {
+                "id": 6,
+                "rank": 6,
+                "name": "Star Atlas",
+                "genre": "Space MMO",
+                "rating": 8.6,
+                "twitterUrl": "https://x.com/staratlas",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1422912148364079104/maHhfJK2_400x400.jpg"
+            },
+            {
+                "id": 7,
+                "rank": 7,
+                "name": "Gods Unchained",
+                "genre": "Card Game",
+                "rating": 8.6,
+                "twitterUrl": "https://x.com/GodsUnchained",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1595793735613632512/l3x8vUWx_400x400.jpg"
+            },
+            {
+                "id": 8,
+                "rank": 8,
+                "name": "Splinterlands",
+                "genre": "Card Game",
+                "rating": 8.4,
+                "twitterUrl": "https://x.com/splinterlands",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 9,
+                "rank": 9,
+                "name": "Alien Worlds",
+                "genre": "Mining",
+                "rating": 8.2,
+                "twitterUrl": "https://x.com/AlienWorlds",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1361946105748836352/1C0q0JdL_400x400.jpg"
+            },
+            {
+                "id": 10,
+                "rank": 10,
+                "name": "Upland",
+                "genre": "Real Estate",
+                "rating": 8.2,
+                "twitterUrl": "https://x.com/UplandMe",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394353320069906434/1YcRs0uH_400x400.jpg"
+            },
+            {
+                "id": 11,
+                "rank": 11,
+                "name": "Sorare",
+                "genre": "Fantasy Sports",
+                "rating": 8,
+                "twitterUrl": "https://x.com/Sorare",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1392864532964372480/Oim5w2dN_400x400.jpg"
+            },
+            {
+                "id": 12,
+                "rank": 12,
+                "name": "Decentraland",
+                "genre": "Metaverse",
+                "rating": 8,
+                "twitterUrl": "https://x.com/decentraland",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1383768698558533633/7K4iImHX_400x400.jpg"
+            },
+            {
+                "id": 13,
+                "rank": 13,
+                "name": "STEPN",
+                "genre": "Move-to-Earn",
+                "rating": 7.8,
+                "twitterUrl": "https://x.com/Stepnofficial",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1496584401352544261/8hL1QW73_400x400.jpg"
+            },
+            {
+                "id": 14,
+                "rank": 14,
+                "name": "Mobox",
+                "genre": "Strategy",
+                "rating": 7.8,
+                "twitterUrl": "https://x.com/MOBOX_Official",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1412000677765701636/3Q1E7y8V_400x400.jpg"
+            },
+            {
+                "id": 15,
+                "rank": 15,
+                "name": "Bomb Crypto",
+                "genre": "Idle",
+                "rating": 7.6,
+                "twitterUrl": "https://x.com/BombCryptoGame",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1434800163410866180/8lkzXg8W_400x400.jpg"
+            },
+            {
+                "id": 16,
+                "rank": 16,
+                "name": "Plant VS Undead",
+                "genre": "Tower Defense",
+                "rating": 7.6,
+                "twitterUrl": "https://x.com/PVUofficial",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1417108806123466752/4kZ2pVbK_400x400.jpg"
+            },
+            {
+                "id": 17,
+                "rank": 17,
+                "name": "CryptoBlades",
+                "genre": "RPG",
+                "rating": 7.4,
+                "twitterUrl": "https://x.com/CryptoBlades",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 18,
+                "rank": 18,
+                "name": "My DeFi Pet",
+                "genre": "Virtual Pet",
+                "rating": 7.4,
+                "twitterUrl": "https://x.com/MyDeFiPet",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 19,
+                "rank": 19,
+                "name": "Aavegotchi",
+                "genre": "Virtual Pet",
+                "rating": 7.2,
+                "twitterUrl": "https://x.com/aavegotchi",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1361946105748836352/1C0q0JdL_400x400.jpg"
+            },
+            {
+                "id": 20,
+                "rank": 20,
+                "name": "League of Kingdoms",
+                "genre": "Strategy",
+                "rating": 7.2,
+                "twitterUrl": "https://x.com/LeagueKingdoms",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 21,
+                "rank": 21,
+                "name": "Ember Sword",
+                "genre": "MMORPG",
+                "rating": 7,
+                "twitterUrl": "https://x.com/EmberSword",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 22,
+                "rank": 22,
+                "name": "Thetan Arena",
+                "genre": "MOBA",
+                "rating": 7,
+                "twitterUrl": "https://x.com/ThetanArena",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 23,
+                "rank": 23,
+                "name": "DeFi Kingdoms",
+                "genre": "RPG",
+                "rating": 6.8,
+                "twitterUrl": "https://x.com/DefiKingdoms",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 24,
+                "rank": 24,
+                "name": "Pegaxy",
+                "genre": "Racing",
+                "rating": 6.8,
+                "twitterUrl": "https://x.com/PegaxyOfficial",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 25,
+                "rank": 25,
+                "name": "CyBall",
+                "genre": "Sports",
+                "rating": 6.6,
+                "twitterUrl": "https://x.com/CyBallOfficial",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 26,
+                "rank": 26,
+                "name": "MetaGods",
+                "genre": "RPG",
+                "rating": 6.6,
+                "twitterUrl": "https://x.com/MetaGodsNFT",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 27,
+                "rank": 27,
+                "name": "Wolf Game",
+                "genre": "Strategy",
+                "rating": 6.4,
+                "twitterUrl": "https://x.com/wolfgamenft",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 28,
+                "rank": 28,
+                "name": "Zed Run",
+                "genre": "Racing",
+                "rating": 6.4,
+                "twitterUrl": "https://x.com/zed_run",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 29,
+                "rank": 29,
+                "name": "Guild of Guardians",
+                "genre": "RPG",
+                "rating": 6.2,
+                "twitterUrl": "https://x.com/GuildOfGuardian",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 30,
+                "rank": 30,
+                "name": "F1 Delta Time",
+                "genre": "Racing",
+                "rating": 6.2,
+                "twitterUrl": "https://x.com/F1DeltaTime",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 31,
+                "rank": 31,
+                "name": "MIR4",
+                "genre": "MMORPG",
+                "rating": 6,
+                "twitterUrl": "https://x.com/MIR4Global",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 32,
+                "rank": 32,
+                "name": "Nine Chronicles",
+                "genre": "RPG",
+                "rating": 6,
+                "twitterUrl": "https://x.com/NineChronicles",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 33,
+                "rank": 33,
+                "name": "Blankos Block Party",
+                "genre": "Party",
+                "rating": 5.8,
+                "twitterUrl": "https://x.com/PlayBlankos",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 34,
+                "rank": 34,
+                "name": "Mines of Dalarnia",
+                "genre": "Action",
+                "rating": 5.8,
+                "twitterUrl": "https://x.com/MinesOfDalarnia",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 35,
+                "rank": 35,
+                "name": "Vulcan Verse",
+                "genre": "MMORPG",
+                "rating": 5.6,
+                "twitterUrl": "https://x.com/VulcanVerse",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 36,
+                "rank": 36,
+                "name": "Sidus Heroes",
+                "genre": "RPG",
+                "rating": 5.6,
+                "twitterUrl": "https://x.com/galaxy_sidus",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 37,
+                "rank": 37,
+                "name": "Chainmonsters",
+                "genre": "RPG",
+                "rating": 5.4,
+                "twitterUrl": "https://x.com/Chainmonsters",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 38,
+                "rank": 38,
+                "name": "Spider Tanks",
+                "genre": "MOBA",
+                "rating": 5.4,
+                "twitterUrl": "https://x.com/SpiderTanks",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 39,
+                "rank": 39,
+                "name": "Town Star",
+                "genre": "Simulation",
+                "rating": 5.2,
+                "twitterUrl": "https://x.com/TownStarGame",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 40,
+                "rank": 40,
+                "name": "Echoes of Empire",
+                "genre": "Strategy",
+                "rating": 5.2,
+                "twitterUrl": "https://x.com/EchoesOfEmpire",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 41,
+                "rank": 41,
+                "name": "Mirandus",
+                "genre": "MMORPG",
+                "rating": 5,
+                "twitterUrl": "https://x.com/MirandusGame",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 42,
+                "rank": 42,
+                "name": "Legacy",
+                "genre": "Simulation",
+                "rating": 5,
+                "twitterUrl": "https://x.com/LegacyGame",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 43,
+                "rank": 43,
+                "name": "Battle Racers",
+                "genre": "Racing",
+                "rating": 4.8,
+                "twitterUrl": "https://x.com/BattleRacers",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 44,
+                "rank": 44,
+                "name": "Neon District",
+                "genre": "RPG",
+                "rating": 4.8,
+                "twitterUrl": "https://x.com/NeonDistrictRPG",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 45,
+                "rank": 45,
+                "name": "Axie Infinity: Origin",
+                "genre": "Card Game",
+                "rating": 4.6,
+                "twitterUrl": "https://x.com/AxieInfinity",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1834204363067150336/4ia7E1EZ_400x400.jpg"
+            },
+            {
+                "id": 46,
+                "rank": 46,
+                "name": "Fancy Birds",
+                "genre": "Arcade",
+                "rating": 4.6,
+                "twitterUrl": "https://x.com/FancyBirdsGame",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 47,
+                "rank": 47,
+                "name": "Crazy Defense Heroes",
+                "genre": "Tower Defense",
+                "rating": 4.4,
+                "twitterUrl": "https://x.com/CrazyDefenseHQ",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 48,
+                "rank": 48,
+                "name": "League of Ancients",
+                "genre": "MOBA",
+                "rating": 4.4,
+                "twitterUrl": "https://x.com/LeagueofAncients",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 49,
+                "rank": 49,
+                "name": "Kryptomon",
+                "genre": "Virtual Pet",
+                "rating": 4.2,
+                "twitterUrl": "https://x.com/KryptomonTeam",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            },
+            {
+                "id": 50,
+                "rank": 50,
+                "name": "Binemon",
+                "genre": "RPG",
+                "rating": 4,
+                "twitterUrl": "https://x.com/BinemonNFT",
+                "logoUrl": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg"
+            }
+        ]
+    },
+    "media": {
+        "badge": "Media Center",
+        "title": "Latest Insights & Updates",
+        "subtitle": "Stay informed with daily reports and articles.",
+        "dailyTitle": "Daily Reports",
+        "weeklyTitle": "Weekly Reports",
+        "articlesTitle": "Featured Articles",
+        "subscribeText": "Subscribe on X",
+        "xLink": "https://x.com/GMA_DAO",
+        "dailyReports": [
+            {
+                "title": "Web3 Gaming Market Analysis - Jan 15",
+                "date": "Jan 15, 2026",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "Top Performing Blockchain Games",
+                "date": "Jan 14, 2026",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "NFT Gaming Trends Report",
+                "date": "Jan 13, 2026",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "GameFi Investment Update",
+                "date": "Jan 12, 2026",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "New Game Launches This Week",
+                "date": "Jan 11, 2026",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "Community Growth Metrics",
+                "date": "Jan 10, 2026",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "Token Performance Analysis",
+                "date": "Jan 9, 2026",
+                "link": "https://x.com/GMA_DAO"
+            }
+        ],
+        "weeklyReports": [
+            {
+                "title": "Week 2: Blockchain Gaming Roundup",
+                "date": "Week 2, 2026",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "Week 1: New Year Gaming Trends",
+                "date": "Week 1, 2026",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "Week 52: 2025 Year in Review",
+                "date": "Week 52, 2025",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "Week 51: Holiday Gaming Report",
+                "date": "Week 51, 2025",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "Week 50: Market Recovery Analysis",
+                "date": "Week 50, 2025",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "Week 49: Guild Performance Report",
+                "date": "Week 49, 2025",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "Week 48: Emerging Markets Focus",
+                "date": "Week 48, 2025",
+                "link": "https://x.com/GMA_DAO"
+            }
+        ],
+        "articles": [
+            {
+                "title": "The Future of Play-to-Earn Gaming",
+                "excerpt": "Exploring sustainable economic models in blockchain gaming.",
+                "image": "/images/article-1.jpg",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "How DAOs Are Changing Game Development",
+                "excerpt": "Community-driven development in the Web3 era.",
+                "image": "/images/article-2.jpg",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "Top 10 NFT Games to Watch in 2026",
+                "excerpt": "Our picks for the most promising blockchain games.",
+                "image": "/images/article-3.jpg",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "Understanding GameFi Tokenomics",
+                "excerpt": "A deep dive into sustainable in-game economies.",
+                "image": "/images/article-1.jpg",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "GMA Guild Tournament Recap",
+                "excerpt": "Highlights from our latest community event.",
+                "image": "/images/event-tournament.jpg",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "Interview with Axie Infinity Team",
+                "excerpt": "Behind the scenes with the pioneers of P2E gaming.",
+                "image": "/images/article-2.jpg",
+                "link": "https://x.com/GMA_DAO"
+            }
+        ]
+    },
+    "events": {
+        "badge": "Events",
+        "title": "Join Our Community Events",
+        "subtitle": "Connect through online AMAs and offline meetups.",
+        "onlineTitle": "Online X Space",
+        "offlineTitle": "City Tour",
+        "tournamentTitle": "Guild Tournaments",
+        "viewMoreText": "View More Events",
+        "viewMoreLink": "https://x.com/GMA_DAO",
+        "onlineEvents": [
+            {
+                "title": "GMA Weekly AMA #45",
+                "date": "Every Friday, 8PM UTC",
+                "description": "Join our weekly community AMA with special guests from top Web3 gaming projects.",
+                "link": "https://x.com/GMA_DAO",
+                "status": "ongoing",
+                "image": "/images/event-xspace.jpg"
+            },
+            {
+                "title": "GameFi Investment Deep Dive",
+                "date": "Jan 20, 2026",
+                "description": "Expert analysis of current GameFi investment opportunities.",
+                "link": "https://x.com/GMA_DAO",
+                "status": "upcoming",
+                "image": "/images/event-xspace.jpg"
+            },
+            {
+                "title": "New Project Launch Party",
+                "date": "Jan 25, 2026",
+                "description": "Celebrate the launch of our newest portfolio project.",
+                "link": "https://x.com/GMA_DAO",
+                "status": "upcoming",
+                "image": "/images/event-xspace.jpg"
+            }
+        ],
+        "offlineEvents": [
+            {
+                "city": "Shanghai",
+                "date": "Feb 20, 2026",
+                "venue": "WeWork Nanjing West Road",
+                "link": "https://x.com/GMA_DAO",
+                "status": "upcoming",
+                "image": "/images/event-city.jpg"
+            },
+            {
+                "city": "Singapore",
+                "date": "Mar 15, 2026",
+                "venue": "Marina Bay Sands",
+                "link": "https://x.com/GMA_DAO",
+                "status": "upcoming",
+                "image": "/images/event-city.jpg"
+            },
+            {
+                "city": "Dubai",
+                "date": "Apr 10, 2026",
+                "venue": "Dubai Blockchain Center",
+                "link": "https://x.com/GMA_DAO",
+                "status": "upcoming",
+                "image": "/images/event-city.jpg"
+            },
+            {
+                "city": "Tokyo",
+                "date": "May 5, 2026",
+                "venue": "Shibuya Hikarie",
+                "link": "https://x.com/GMA_DAO",
+                "status": "upcoming",
+                "image": "/images/event-city.jpg"
+            }
+        ],
+        "tournaments": [
+            {
+                "name": "GMA Championship Series",
+                "game": "Axie Infinity",
+                "prize": "$50,000",
+                "participants": "1,200+",
+                "gmaRank": 3,
+                "status": "ongoing",
+                "image": "/images/event-tournament.jpg",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "name": "Winter Guild Wars",
+                "game": "The Sandbox",
+                "prize": "$30,000",
+                "participants": "800+",
+                "gmaRank": 1,
+                "status": "upcoming",
+                "image": "/images/event-tournament.jpg",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "name": "Spring Tournament",
+                "game": "Illuvium",
+                "prize": "$25,000",
+                "participants": "600+",
+                "gmaRank": 5,
+                "status": "closed",
+                "image": "/images/event-tournament.jpg",
+                "link": "https://x.com/GMA_DAO"
+            }
+        ]
+    },
+    "opentask": {
+        "badge": "Open Tasks",
+        "title": "Contribute & Earn Rewards",
+        "subtitle": "Join our program to earn XP and rewards.",
+        "contributorsTitle": "Top Contributors",
+        "availableTasksTitle": "Available Tasks",
+        "viewAllText": "View All Tasks",
+        "applyEnabled": true,
+        "applyLink": "https://docs.google.com/spreadsheets/d/example",
+        "tasks": [
+            {
+                "id": 1,
+                "title": "Content Creation - Game Review",
+                "description": "Write a detailed review of a Web3 game.",
+                "reward": "500 vGMA",
+                "status": "ongoing",
+                "category": "Content",
+                "applyEnabled": true
+            },
+            {
+                "id": 2,
+                "title": "Community Moderator",
+                "description": "Help moderate our Discord and Telegram channels.",
+                "reward": "1000 vGMA/month",
+                "status": "ongoing",
+                "category": "Community",
+                "applyEnabled": true
+            },
+            {
+                "id": 3,
+                "title": "Social Media Ambassador",
+                "description": "Share GMA content on Twitter and engage with community.",
+                "reward": "200 vGMA/post",
+                "status": "filled",
+                "category": "Marketing",
+                "applyEnabled": true
+            },
+            {
+                "id": 4,
+                "title": "Translation - Chinese",
+                "description": "Translate GMA reports and articles to Chinese.",
+                "reward": "300 vGMA/article",
+                "status": "ongoing",
+                "category": "Translation",
+                "applyEnabled": true
+            },
+            {
+                "id": 5,
+                "title": "Game Testing",
+                "description": "Test new Web3 games and provide feedback.",
+                "reward": "400 vGMA/game",
+                "status": "closed",
+                "category": "Research",
+                "applyEnabled": false
+            },
+            {
+                "id": 6,
+                "title": "Video Content Creator",
+                "description": "Create video content about Web3 gaming.",
+                "reward": "800 vGMA/video",
+                "status": "ongoing",
+                "category": "Content",
+                "applyEnabled": true
+            }
+        ],
+        "contributors": [
+            {
+                "rank": 1,
+                "username": "CryptoGamer_Pro",
+                "wallet": "0x7a23...4f91",
+                "xp": 12500,
+                "tasks": 45,
+                "avatar": ""
+            },
+            {
+                "rank": 2,
+                "username": "Web3Hunter",
+                "wallet": "0x3b45...9c22",
+                "xp": 10800,
+                "tasks": 38,
+                "avatar": ""
+            },
+            {
+                "rank": 3,
+                "username": "BlockchainBoss",
+                "wallet": "0x9d12...7e33",
+                "xp": 9200,
+                "tasks": 32,
+                "avatar": ""
+            },
+            {
+                "rank": 4,
+                "username": "NFTExplorer",
+                "wallet": "0x1f56...8a44",
+                "xp": 8500,
+                "tasks": 29,
+                "avatar": ""
+            },
+            {
+                "rank": 5,
+                "username": "DeFiMaster",
+                "wallet": "0x4e78...2b55",
+                "xp": 7800,
+                "tasks": 26,
+                "avatar": ""
+            },
+            {
+                "rank": 6,
+                "username": "GameFiKing",
+                "wallet": "0x8c34...6d66",
+                "xp": 7200,
+                "tasks": 24,
+                "avatar": ""
+            },
+            {
+                "rank": 7,
+                "username": "TokenWhale",
+                "wallet": "0x2a90...1e77",
+                "xp": 6500,
+                "tasks": 21,
+                "avatar": ""
+            },
+            {
+                "rank": 8,
+                "username": "MetaversePro",
+                "wallet": "0x5b67...3f88",
+                "xp": 5800,
+                "tasks": 19,
+                "avatar": ""
+            },
+            {
+                "rank": 9,
+                "username": "ChainMaster",
+                "wallet": "0x7d23...5a99",
+                "xp": 5200,
+                "tasks": 17,
+                "avatar": ""
+            },
+            {
+                "rank": 10,
+                "username": "Play2EarnStar",
+                "wallet": "0x0e89...7c00",
+                "xp": 4600,
+                "tasks": 15,
+                "avatar": ""
+            }
+        ]
+    },
+    "portfolio": {
+        "badge": "Portfolio",
+        "title": "Our Investment Portfolio",
+        "subtitle": "Invested in 50+ leading Web3 gaming projects.",
+        "reportsTitle": "Financial Reports",
+        "viewAllReportsText": "View All Reports",
+        "projects": [
+            {
+                "name": "Axie Infinity",
+                "logo": "https://pbs.twimg.com/profile_images/1834204363067150336/4ia7E1EZ_400x400.jpg",
+                "twitter": "https://x.com/AxieInfinity"
+            },
+            {
+                "name": "The Sandbox",
+                "logo": "https://pbs.twimg.com/profile_images/1468000050368495619/uD7Q7B8k_400x400.jpg",
+                "twitter": "https://x.com/TheSandboxGame"
+            },
+            {
+                "name": "Illuvium",
+                "logo": "https://pbs.twimg.com/profile_images/1412378332080525312/5nUVzVzL_400x400.jpg",
+                "twitter": "https://x.com/illuviumio"
+            },
+            {
+                "name": "Star Atlas",
+                "logo": "https://pbs.twimg.com/profile_images/1422912148364079104/maHhfJK2_400x400.jpg",
+                "twitter": "https://x.com/staratlas"
+            },
+            {
+                "name": "Pixels",
+                "logo": "https://pbs.twimg.com/profile_images/1624407413662261250/3Q1E7y8V_400x400.jpg",
+                "twitter": "https://x.com/pixels_online"
+            },
+            {
+                "name": "Big Time",
+                "logo": "https://pbs.twimg.com/profile_images/1517216832698949636/7LKww8Z4_400x400.jpg",
+                "twitter": "https://x.com/playbigtime"
+            },
+            {
+                "name": "Gods Unchained",
+                "logo": "https://pbs.twimg.com/profile_images/1595793735613632512/l3x8vUWx_400x400.jpg",
+                "twitter": "https://x.com/GodsUnchained"
+            },
+            {
+                "name": "Splinterlands",
+                "logo": "https://pbs.twimg.com/profile_images/1394718647922651140/7Y7U14-2_400x400.jpg",
+                "twitter": "https://x.com/splinterlands"
+            }
+        ],
+        "reports": [
+            {
+                "title": "Q4 2025 Portfolio Report",
+                "date": "Dec 2025",
+                "type": "Quarterly",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "Q3 2025 Investment Summary",
+                "date": "Sep 2025",
+                "type": "Quarterly",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "Annual Report 2025",
+                "date": "Jan 2026",
+                "type": "Annual",
+                "link": "https://x.com/GMA_DAO"
+            },
+            {
+                "title": "Guild Performance Report",
+                "date": "Dec 2025",
+                "type": "Monthly",
+                "link": "https://x.com/GMA_DAO"
+            }
+        ]
+    },
+    "partners": {
+        "badge": "Partners",
+        "title": "Our Strategic Partners",
+        "subtitle": "Collaborate with leading blockchain networks.",
+        "ctaText": "Become a Partner",
+        "ctaLink": "https://x.com/GMA_DAO",
+        "items": [
+            {
+                "name": "Ethereum",
+                "logo": "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+                "twitter": "https://x.com/ethereum"
+            },
+            {
+                "name": "Polygon",
+                "logo": "https://cryptologos.cc/logos/polygon-matic-logo.png",
+                "twitter": "https://x.com/0xPolygon"
+            },
+            {
+                "name": "Solana",
+                "logo": "https://cryptologos.cc/logos/solana-sol-logo.png",
+                "twitter": "https://x.com/solana"
+            },
+            {
+                "name": "Arbitrum",
+                "logo": "https://cryptologos.cc/logos/arbitrum-arb-logo.png",
+                "twitter": "https://x.com/arbitrum"
+            },
+            {
+                "name": "Optimism",
+                "logo": "https://cryptologos.cc/logos/optimism-ethereum-op-logo.png",
+                "twitter": "https://x.com/Optimism"
+            },
+            {
+                "name": "Base",
+                "logo": "https://cryptologos.cc/logos/base-base-logo.png",
+                "twitter": "https://x.com/Base"
+            },
+            {
+                "name": "Immutable",
+                "logo": "https://cryptologos.cc/logos/immutable-x-imx-logo.png",
+                "twitter": "https://x.com/Immutable"
+            },
+            {
+                "name": "Ronin",
+                "logo": "https://cryptologos.cc/logos/ronin-ron-logo.png",
+                "twitter": "https://x.com/Ronin_Network"
+            }
+        ]
+    },
+    "footer": {
+        "logoText": "GMA DAO",
+        "logoUrl": "",
+        "description": "Building the future of Web3 gaming together.",
+        "copyright": "2026 GMA DAO. All rights reserved.",
+        "socialLinks": {
+            "twitter": "https://x.com/GMA_DAO",
+            "discord": "https://discord.gg/gma",
+            "telegram": "https://t.me/GMA_DAO",
+            "mirror": "https://mirror.xyz/gma"
+        }
+    }
+}

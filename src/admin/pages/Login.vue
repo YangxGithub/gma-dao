@@ -27,14 +27,16 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useGmadaoConfigStore } from '../stores/gmadaoConfig';
 
 const router = useRouter();
+const gmadaoConfigStore = useGmadaoConfigStore();
 
-const username = ref('');
-const password = ref('');
+const username = ref('admin');
+const password = ref('123456');
 const error = ref('');
 
-const handleSubmit = () => {
+const handleSubmit = async () => {
   error.value = '';
 
   if (!username.value || !password.value) {
@@ -55,6 +57,13 @@ const handleSubmit = () => {
 
   sessionStorage.setItem('adminCurrentUser', JSON.stringify(user));
 
-  router.replace({ name: 'dashboard' });
+  try {
+    await gmadaoConfigStore.fetchConfig();
+  } catch {
+    error.value = gmadaoConfigStore.error || '远程配置加载失败，请稍后重试';
+    return;
+  }
+
+  router.replace({ name: 'config' });
 };
 </script>

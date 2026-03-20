@@ -10,9 +10,8 @@
       <aside class="sidebar">
         <h1 class="logo">GMA Admin</h1>
         <nav>
-          <RouterLink to="/">仪表盘</RouterLink>
-          <RouterLink to="/users">用户管理</RouterLink>
-          <RouterLink to="/settings">系统设置</RouterLink>
+          <RouterLink to="/">配置管理</RouterLink>
+          <RouterLink to="/user">用户管理</RouterLink>
         </nav>
       </aside>
 
