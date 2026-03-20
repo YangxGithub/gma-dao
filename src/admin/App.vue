@@ -350,13 +350,15 @@ import { SaveOutlined, UploadOutlined, SettingOutlined } from '@ant-design/icons
 
 const route = useRoute();
 
+/** Ant Design Vue：暗色主题 + 英文 */
 const antdTheme = {
   algorithm: theme.darkAlgorithm,
+  token: {
+    colorPrimary: '#1f1f1f',
+  },
 };
 
 const isLoginPage = computed(() => route.name === 'login');
-
-/** Ant Design Vue：暗色主题 + 英文 */
 
 const collapsed = ref<boolean>(false);
 const selectedKeys = ref<string[]>(['1']);
