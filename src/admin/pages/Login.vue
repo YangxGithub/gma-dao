@@ -1,69 +1,162 @@
 <template>
-  <div class="login-wrapper">
-    <div class="login-card">
-      <h2>管理后台登录</h2>
-      <form @submit.prevent="handleSubmit">
-        <div class="form-item">
-          <label for="username">账号</label>
-          <input id="username" v-model.trim="username" placeholder="请输入账号" autocomplete="username" />
-        </div>
-        <div class="form-item">
-          <label for="password">密码</label>
-          <input
-            id="password"
-            v-model.trim="password"
-            type="password"
-            placeholder="请输入密码"
-            autocomplete="current-password" />
-        </div>
-        <p v-if="error" class="error">{{ error }}</p>
-        <button type="submit" class="primary-btn">登录</button>
-        <p class="tip">默认账号：admin，密码：123456</p>
-      </form>
-    </div>
+  <div class="login-page">
+    <a-card class="login-card" :bordered="false">
+      <div class="login-header">
+        <h1 class="login-brand">GMA DAO</h1>
+        <a-typography-text type="secondary">Admin Console</a-typography-text>
+      </div>
+
+      <a-typography-paragraph type="secondary" class="login-desc">
+        Sign in to manage site configuration and uploads.
+      </a-typography-paragraph>
+
+      <a-alert v-if="error" :message="error" type="error" show-icon class="login-alert" />
+
+      <a-form
+        layout="vertical"
+        :model="formState"
+        name="admin_login"
+        autocomplete="off"
+        class="login-form"
+        @finish="handleSubmit">
+        <a-form-item
+          label="Username"
+          name="username"
+          :rules="[{ required: true, message: 'Please enter username' }]">
+          <a-input v-model:value="formState.username" size="large" placeholder="admin" allow-clear>
+            <template #prefix>
+              <UserOutlined class="input-icon" />
+            </template>
+          </a-input>
+        </a-form-item>
+
+        <a-form-item
+          label="Password"
+          name="password"
+          :rules="[{ required: true, message: 'Please enter password' }]">
+          <a-input-password v-model:value="formState.password" size="large" placeholder="Password" />
+        </a-form-item>
+
+        <a-form-item>
+          <a-button type="primary" html-type="submit" block size="large" :loading="submitting">
+            Sign in
+          </a-button>
+        </a-form-item>
+      </a-form>
+
+      <a-divider class="login-divider" />
+
+      <a-typography-text type="secondary" class="login-hint">
+        Development default: <code>admin</code> / <code>123456</code>
+      </a-typography-text>
+    </a-card>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { UserOutlined } from '@ant-design/icons-vue';
 import { useGmadaoConfigStore } from '../stores/gmadaoConfig';
 
 const router = useRouter();
 const gmadaoConfigStore = useGmadaoConfigStore();
 
-const username = ref('admin');
-const password = ref('123456');
+const formState = reactive({
+  username: 'admin',
+  password: '123456'
+});
+
 const error = ref('');
+const submitting = ref(false);
 
 const handleSubmit = async () => {
   error.value = '';
 
-  if (!username.value || !password.value) {
-    error.value = '请输入账号和密码';
-    return;
-  }
-
-  if (username.value !== 'admin' || password.value !== '123456') {
-    error.value = '账号或密码错误（默认：admin / 123456）';
+  if (formState.username !== 'admin' || formState.password !== '123456') {
+    error.value = 'Invalid username or password.';
     return;
   }
 
   const user = {
-    username: username.value,
+    username: formState.username,
     role: 'admin',
-    loginAt: Date.now(),
+    loginAt: Date.now()
   };
 
   sessionStorage.setItem('adminCurrentUser', JSON.stringify(user));
 
+  submitting.value = true;
   try {
     await gmadaoConfigStore.fetchConfig();
+    router.replace({ name: 'config' });
   } catch {
-    error.value = gmadaoConfigStore.error || '远程配置加载失败，请稍后重试';
-    return;
+    error.value = gmadaoConfigStore.error || 'Failed to load remote configuration. Please try again.';
+  } finally {
+    submitting.value = false;
   }
-
-  router.replace({ name: 'config' });
 };
 </script>
+
+<style scoped>
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(160deg, #0d1117 0%, #161b22 45%, #21262d 100%);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.login-brand {
+  margin: 0 0 4px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.login-desc {
+  margin-bottom: 20px !important;
+  font-size: 13px;
+}
+
+.login-alert {
+  margin-bottom: 16px;
+}
+
+.login-form {
+  margin-top: 4px;
+}
+
+.input-icon {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.login-divider {
+  margin: 8px 0 12px;
+}
+
+.login-hint {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+}
+
+.login-hint code {
+  padding: 0 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+}
+</style>

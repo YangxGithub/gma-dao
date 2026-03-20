@@ -11,6 +11,7 @@
     "preview:prod": "node scripts/preview-spa.mjs --mode production --outDir gma-dao-prod"
   },
   "dependencies": {
+    "ant-design-vue": "^4.2.6",
     "pinia": "^3.0.4",
     "vue": "^3.5.0",
     "vue-router": "^4.4.0"
