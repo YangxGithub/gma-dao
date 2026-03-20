@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
+import Components from 'unplugin-vue-components/vite';
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 
 const gmadaoApiProxy = {
   '/GMADAOAPI': {
@@ -38,6 +40,14 @@ export default defineConfig(({ mode }) => {
         },
       },
       vue(),
+      Components({
+        resolvers: [
+          AntDesignVueResolver({
+            // ant-design-vue v4 推荐走 css-in-js；关闭按组件引入 css，避免缺失样式入口导致的构建失败
+            importStyle: false,
+          }),
+        ],
+      }),
     ],
     resolve: {
       alias: {
